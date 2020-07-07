@@ -5,10 +5,9 @@ class Fib extends Component {
   state = {
     seenIndexes: [],
     values: {},
-    index: '',
+    index: ''
   };
 
-  // lifecycle method
   componentDidMount() {
     this.fetchValues();
     this.fetchIndexes();
@@ -21,25 +20,25 @@ class Fib extends Component {
 
   async fetchIndexes() {
     const seenIndexes = await axios.get('/api/values/all');
-    this.setState({ seenIndexes: seenIndexes.data });
+    this.setState({
+      seenIndexes: seenIndexes.data
+    });
   }
 
-  handleSubmit = async (event) => {
+  handleSubmit = async event => {
     event.preventDefault();
+
     await axios.post('/api/values', {
-      index: this.state.index,
+      index: this.state.index
     });
-    // resets index state
     this.setState({ index: '' });
   };
 
   renderSeenIndexes() {
-    // data stored in PG, returns as an array
     return this.state.seenIndexes.map(({ number }) => number).join(', ');
   }
 
   renderValues() {
-    //data stored in redis, returns as object
     const entries = [];
 
     for (let key in this.state.values) {
@@ -49,24 +48,26 @@ class Fib extends Component {
         </div>
       );
     }
+
+    return entries;
   }
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label>Enter an index</label>
+          <label>Enter your index:</label>
           <input
             value={this.state.index}
-            onChange={(event) => this.setState({ index: event.target.value })}
+            onChange={event => this.setState({ index: event.target.value })}
           />
           <button>Submit</button>
         </form>
 
-        <h3>Index I've seen</h3>
+        <h3>Indexes I have seen:</h3>
         {this.renderSeenIndexes()}
 
-        <h3>Calculated Values</h3>
+        <h3>Calculated Values:</h3>
         {this.renderValues()}
       </div>
     );
