@@ -1,0 +1,23 @@
+language: generic
+services:
+  - docker
+
+before-install:
+  - docker build -t wjn1/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true wjn1/react-test npm test
+
+after_success:
+  - docker build -t wjn1/fibonacci-calculator-client ./client
+  - docker build -t wjn1/fibonacci-calculator-proxy ./nginx
+  - docker build -t wjn1/fibonacci-calculator-api ./server
+  - docker build -t wjn1/fibonacci-calculator-worker ./worker
+
+  # login to docker cli
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # take images and push to docker hub
+  - docker push wjn1/fibonacci-calculator-client
+  - docker push wjn1/fibonacci-calculator-proxy
+  - docker push wjn1/fibonacci-calculator-api
+  - docker push wjn1/fibonacci-calculator-worker
