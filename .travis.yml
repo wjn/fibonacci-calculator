@@ -16,6 +16,7 @@ after_success:
 
   # login to docker cli
   #- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker logout
   - docker login -u "$DOCKER_ID" -p "$DOCKER_PASSWORD" docker.io
   # take images and push to docker hub
   - docker push wjn1/fibonacci-calculator-client
