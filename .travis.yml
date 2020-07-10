@@ -18,8 +18,24 @@ after_success:
   #- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker logout
   - docker login -u "$DOCKER_ID" -p "$DOCKER_PASSWORD" docker.io
-  # take images and push to docker hub
+  # Push images to docker hub
   - docker push wjn1/fibonacci-calculator-client
   - docker push wjn1/fibonacci-calculator-proxy
   - docker push wjn1/fibonacci-calculator-api
   - docker push wjn1/fibonacci-calculator-worker
+
+deploy:
+  ## Use experimental travis deploy script 'edge'
+  edge: true
+  provider: elasticbeanstalk
+  region: us-east-1
+  app: fibonacci-calculator
+  env: FibonacciCalculator-env
+  bucket_name: elasticbeanstalk-us-east-1-858111074093
+  bucket_path: fibonacci-calculator
+  on:
+    ## only deploy changes to master
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
