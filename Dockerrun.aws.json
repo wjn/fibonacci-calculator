@@ -1,0 +1,36 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "wjn1/fibonacci-calculator-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "api",
+      "image": "wjn1/fibonacci-calculator-api",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "wjn1/fibonacci-calculator-worker",
+      "hostname": "worker",
+      "essential": false
+    },
+    {
+      "name": "proxy",
+      "image": "wjn1/fibonacci-calculator-proxy",
+      "hostname": "proxy",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "api"]
+    }
+  ]
+}
