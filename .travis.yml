@@ -1,4 +1,7 @@
 language: generic
+os: linux
+dist: xenial
+
 services:
   - docker
 
@@ -28,11 +31,11 @@ deploy:
   ## Use experimental travis deploy script 'edge'
   edge: true
   provider: elasticbeanstalk
-  region: us-east-1
-  app: fibonacci-calculator
-  env: FibonacciCalculator-env
-  bucket_name: elasticbeanstalk-us-east-1-858111074093
-  bucket_path: fibonacci-calculator
+  region: 'us-east-1'
+  app: 'fibonacci-calculator'
+  env: 'FibonacciCalculator-env'
+  bucket_name: 'elasticbeanstalk-us-east-1-858111074093'
+  bucket_path: 'fibonacci-calculator'
   on:
     ## only deploy changes to master
     branch: master
