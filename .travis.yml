@@ -33,7 +33,7 @@ deploy:
   provider: elasticbeanstalk
   region: 'us-east-1'
   app: 'fibonacci-calculator'
-  env: 'FibonacciCalculator-env'
+  env: 'FibCalc-env'
   bucket_name: 'elasticbeanstalk-us-east-1-858111074093'
   bucket_path: 'fibonacci-calculator'
   on:
