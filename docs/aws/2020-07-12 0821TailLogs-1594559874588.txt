@@ -1,0 +1,157 @@
+----------------------------------------
+/var/log/nginx/access.log
+----------------------------------------
+
+
+----------------------------------------
+/var/log/nginx/error.log
+----------------------------------------
+
+
+----------------------------------------
+/var/log/eb-engine.log
+----------------------------------------
+2020/07/12 13:05:22.579708 [INFO] Executing instruction: Configure Docker Container Logging
+2020/07/12 13:05:22.582540 [INFO] Executing instruction: RunPostDeployHooks
+2020/07/12 13:05:22.582565 [INFO] The dir .platform/hooks/postdeploy/ does not exist in the application. Skipping this step...
+2020/07/12 13:05:22.582571 [INFO] Executing cleanup logic
+2020/07/12 13:05:22.582687 [INFO] CommandService Response: {"status":"SUCCESS","api_version":"1.0","results":[{"status":"SUCCESS","msg":"Engine execution has succeeded.","returncode":0,"events":[]}]}
+
+2020/07/12 13:05:22.582899 [INFO] Platform Engine finished execution on command: app-deploy
+
+2020/07/12 13:09:33.420390 [INFO] Starting...
+2020/07/12 13:09:33.420451 [INFO] Starting EBPlatform-PlatformEngine
+2020/07/12 13:09:33.420518 [INFO] no eb envtier info file found, skip loading env tier info.
+2020/07/12 13:09:33.420631 [INFO] Engine received EB command cfn-hup-exec
+
+2020/07/12 13:09:33.517241 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:858111074093:stack/awseb-e-gcawuvpzt9-stack/e6664ff0-c43f-11ea-923c-0a6641f83659 -r AWSEBAutoScalingGroup --region us-east-1
+2020/07/12 13:09:33.906606 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:858111074093:stack/awseb-e-gcawuvpzt9-stack/e6664ff0-c43f-11ea-923c-0a6641f83659 -r AWSEBBeanstalkMetadata --region us-east-1
+2020/07/12 13:09:34.244134 [INFO] checking whether command app-deploy is applicable to this instance...
+2020/07/12 13:09:34.244161 [INFO] this command is applicable to the instance, thus instance should execute command
+2020/07/12 13:09:34.244165 [INFO] Engine command: (app-deploy)
+
+2020/07/12 13:09:34.244170 [INFO] Downloading EB Application...
+2020/07/12 13:09:34.244173 [INFO] Region: us-east-1
+2020/07/12 13:09:34.244175 [INFO] envID: e-gcawuvpzt9
+2020/07/12 13:09:34.244178 [INFO] envBucket: elasticbeanstalk-us-east-1-858111074093
+2020/07/12 13:09:34.244180 [INFO] Using manifest file name from command request
+2020/07/12 13:09:34.244187 [INFO] Manifest name is : manifest_1594559335132
+2020/07/12 13:09:34.244189 [INFO] Download app version manifest
+2020/07/12 13:09:34.244330 [INFO] Downloading: bucket: elasticbeanstalk-us-east-1-858111074093, object: /resources/environments/e-gcawuvpzt9/_runtime/versions/manifest_1594559335132
+2020/07/12 13:09:34.286535 [INFO] Download successful141bytes downloaded
+2020/07/12 13:09:34.286551 [INFO] Trying to read and parse version manifest...
+2020/07/12 13:09:34.286749 [INFO] Downloading: bucket: elasticbeanstalk-us-east-1-858111074093, object: /resources/environments/e-gcawuvpzt9/_runtime/_versions/Fibonacci-Calc/travis-31f3b8d150f1e5f1695121cd7f527327e156c65d-1594559324
+2020/07/12 13:09:34.300706 [INFO] Download successful319416bytes downloaded
+2020/07/12 13:09:34.301686 [INFO] Executing instruction: ElectLeader
+2020/07/12 13:09:34.301694 [INFO] Running leader election for instance i-0341ea0569aaddad8...
+2020/07/12 13:09:34.301697 [INFO] Calling the cfn-elect-cmd-leader to elect the command leader.
+2020/07/12 13:09:34.301712 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-elect-cmd-leader --stack arn:aws:cloudformation:us-east-1:858111074093:stack/awseb-e-gcawuvpzt9-stack/e6664ff0-c43f-11ea-923c-0a6641f83659 --command-name ElasticBeanstalkCommand-AWSEBAutoScalingGroup --invocation-id cc60dcb4-fd4d-4b62-842d-78a540de5733 --listener-id i-0341ea0569aaddad8 --region us-east-1
+2020/07/12 13:09:34.735637 [INFO] Instance is Leader.
+2020/07/12 13:09:34.735686 [INFO] Executing instruction: stopSqsd
+2020/07/12 13:09:34.735692 [INFO] This is a web server environment instance, skip stop sqsd daemon ...
+2020/07/12 13:09:34.735696 [INFO] Executing instruction: PreBuildEbExtension
+2020/07/12 13:09:34.735700 [INFO] Starting executing the config set Infra-EmbeddedPreBuild.
+2020/07/12 13:09:34.735728 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-init -s arn:aws:cloudformation:us-east-1:858111074093:stack/awseb-e-gcawuvpzt9-stack/e6664ff0-c43f-11ea-923c-0a6641f83659 -r AWSEBAutoScalingGroup --region us-east-1 --configsets Infra-EmbeddedPreBuild
+2020/07/12 13:09:35.116416 [INFO] Finished executing the config set Infra-EmbeddedPreBuild.
+
+2020/07/12 13:09:35.116449 [INFO] Executing instruction: StagedockerApplication
+2020/07/12 13:09:35.116471 [INFO] Running command /bin/sh -c docker ps -a -q -f status=running
+2020/07/12 13:09:35.161675 [INFO] edc3a294559c
+
+2020/07/12 13:09:35.161745 [INFO] Running command /bin/sh -c docker images | sed 1d
+2020/07/12 13:09:35.207801 [INFO] aws_beanstalk/current-app   latest              aaaf965981f3        4 minutes ago       902MB
+python                      2.7                 68e7be49c28c        2 months ago        902MB
+
+2020/07/12 13:09:35.207833 [INFO] save docker tag command: docker tag aaaf965981f3 aws_beanstalk/current-app:latest
+2020/07/12 13:09:35.207839 [INFO] save docker tag command: docker tag 68e7be49c28c python:2.7
+2020/07/12 13:09:35.207855 [INFO] Running command /bin/sh -c docker rm `docker ps -aq`
+2020/07/12 13:09:35.298959 [ERROR] Error response from daemon: You cannot remove a running container edc3a294559c9b865a8d1c90c6868710b0bf778dbb3c81aa6ac8f17b1d0da753. Stop the container before attempting removal or force remove
+
+2020/07/12 13:09:35.298995 [INFO] Running command /bin/sh -c docker rmi `docker images -aq`
+2020/07/12 13:09:35.419739 [ERROR] Error response from daemon: conflict: unable to delete aaaf965981f3 (cannot be forced) - image is being used by running container edc3a294559c
+Error response from daemon: conflict: unable to delete 759ec77c345b (cannot be forced) - image has dependent child images
+Error response from daemon: conflict: unable to delete 4b079b8b6ff9 (cannot be forced) - image has dependent child images
+Error response from daemon: conflict: unable to delete 68e7be49c28c (cannot be forced) - image has dependent child images
+
+2020/07/12 13:09:35.419765 [INFO] restore docker image name with command: docker tag aaaf965981f3 aws_beanstalk/current-app:latest
+2020/07/12 13:09:35.419776 [INFO] Running command /bin/sh -c docker tag aaaf965981f3 aws_beanstalk/current-app:latest
+2020/07/12 13:09:35.466461 [INFO] restore docker image name with command: docker tag 68e7be49c28c python:2.7
+2020/07/12 13:09:35.466497 [INFO] Running command /bin/sh -c docker tag 68e7be49c28c python:2.7
+2020/07/12 13:09:35.522135 [INFO] Running command /bin/sh -c /bin/file -m /opt/elasticbeanstalk/config/private/beanstalk-magic -b --mime-type /opt/elasticbeanstalk/deployment/app_source_bundle
+2020/07/12 13:09:35.527564 [INFO] application/zip
+
+2020/07/12 13:09:35.527587 [INFO] app source bundle is zip file ...
+2020/07/12 13:09:35.527592 [INFO] extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /var/app/current/
+2020/07/12 13:09:35.527633 [INFO] Running command /bin/sh -c /usr/bin/unzip -q -o /opt/elasticbeanstalk/deployment/app_source_bundle -d /var/app/current/
+2020/07/12 13:09:35.540379 [INFO] finished extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /var/app/current/ successfully
+2020/07/12 13:09:35.540397 [INFO] Executing instruction: RunPreBuildHooks
+2020/07/12 13:09:35.540417 [INFO] The dir .platform/hooks/prebuild/ does not exist in the application. Skipping this step...
+2020/07/12 13:09:35.540420 [INFO] Executing instruction: Docker Specific Build Application
+2020/07/12 13:09:35.540423 [INFO] start build docker app
+2020/07/12 13:09:35.540704 [ERROR] An error occurred during execution of command [app-deploy] - [Docker Specific Build Application]. Stop running the command. Error: Failed to parse Dockerrun JSON file: json: invalid use of ,string struct tag, trying to unmarshal unquoted value into int 
+
+2020/07/12 13:09:35.540714 [INFO] Executing cleanup logic
+2020/07/12 13:09:35.540769 [INFO] CommandService Response: {"status":"FAILURE","api_version":"1.0","results":[{"status":"FAILURE","msg":"Engine execution has encountered an error.","returncode":1,"events":[]}]}
+
+2020/07/12 13:09:35.540976 [INFO] Platform Engine finished execution on command: app-deploy
+
+2020/07/12 13:17:53.673705 [INFO] Starting...
+2020/07/12 13:17:53.673758 [INFO] Starting EBPlatform-PlatformEngine
+2020/07/12 13:17:53.673824 [INFO] no eb envtier info file found, skip loading env tier info.
+2020/07/12 13:17:53.673893 [INFO] Engine received EB command cfn-hup-exec
+
+2020/07/12 13:17:53.754944 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:858111074093:stack/awseb-e-gcawuvpzt9-stack/e6664ff0-c43f-11ea-923c-0a6641f83659 -r AWSEBAutoScalingGroup --region us-east-1
+2020/07/12 13:17:54.175570 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:858111074093:stack/awseb-e-gcawuvpzt9-stack/e6664ff0-c43f-11ea-923c-0a6641f83659 -r AWSEBBeanstalkMetadata --region us-east-1
+2020/07/12 13:17:54.588140 [INFO] checking whether command tail-log is applicable to this instance...
+2020/07/12 13:17:54.588161 [INFO] this command is applicable to the instance, thus instance should execute command
+2020/07/12 13:17:54.588165 [INFO] Engine command: (tail-log)
+
+2020/07/12 13:17:54.588226 [INFO] Executing instruction: GetTailLogs
+2020/07/12 13:17:54.588231 [INFO] Tail Logs...
+2020/07/12 13:17:54.588637 [INFO] Running command /bin/sh -c tail -n 100 /var/log/nginx/access.log
+2020/07/12 13:17:54.592095 [INFO] Running command /bin/sh -c tail -n 100 /var/log/nginx/error.log
+2020/07/12 13:17:54.593730 [INFO] Running command /bin/sh -c tail -n 100 /var/log/eb-engine.log
+
+
+----------------------------------------
+/var/log/docker-events.log
+----------------------------------------
+2020-07-12T13:05:13.047521842Z image pull python:2.7 (name=python)
+2020-07-12T13:05:13.421048840Z container create da0f6e9ec9b5f53e6532d31536d937d46428c84e4d74f0bb45dca1398a976a1b (image=sha256:759ec77c345bfd02923e5a9d9b72442646aa13e2b54ae7464531c10849055376, name=keen_hypatia)
+2020-07-12T13:05:13.550881957Z container destroy da0f6e9ec9b5f53e6532d31536d937d46428c84e4d74f0bb45dca1398a976a1b (image=sha256:759ec77c345bfd02923e5a9d9b72442646aa13e2b54ae7464531c10849055376, name=keen_hypatia)
+2020-07-12T13:05:13.593145219Z container create 3a198d467ccdeee880b56aa7b6c59eaaf85f774187ee8f4596a273817209d135 (image=sha256:4b079b8b6ff981444292db1a1e4094167b1311134bb8de6d83292d3a86b02fda, name=charming_goldberg)
+2020-07-12T13:05:13.707037613Z container destroy 3a198d467ccdeee880b56aa7b6c59eaaf85f774187ee8f4596a273817209d135 (image=sha256:4b079b8b6ff981444292db1a1e4094167b1311134bb8de6d83292d3a86b02fda, name=charming_goldberg)
+2020-07-12T13:05:13.711104374Z image tag sha256:aaaf965981f3e9d3df5f4768c9c78b69d2a4cc343ec95b97575eb0fe49577191 (name=aws_beanstalk/staging-app:latest)
+2020-07-12T13:05:15.433635870Z container create edc3a294559c9b865a8d1c90c6868710b0bf778dbb3c81aa6ac8f17b1d0da753 (image=aaaf965981f3, name=nice_meninsky)
+2020-07-12T13:05:15.477634910Z network connect 7c74c77f8e93a4df4a619cf076e887feddd798241e19293f5ca7ce9da229ad5c (container=edc3a294559c9b865a8d1c90c6868710b0bf778dbb3c81aa6ac8f17b1d0da753, name=bridge, type=bridge)
+2020-07-12T13:05:16.218444181Z container start edc3a294559c9b865a8d1c90c6868710b0bf778dbb3c81aa6ac8f17b1d0da753 (image=aaaf965981f3, name=nice_meninsky)
+2020-07-12T13:05:21.536785075Z image tag sha256:aaaf965981f3e9d3df5f4768c9c78b69d2a4cc343ec95b97575eb0fe49577191 (name=aws_beanstalk/current-app:latest)
+2020-07-12T13:05:21.587347225Z image untag sha256:aaaf965981f3e9d3df5f4768c9c78b69d2a4cc343ec95b97575eb0fe49577191 (name=sha256:aaaf965981f3e9d3df5f4768c9c78b69d2a4cc343ec95b97575eb0fe49577191)
+2020-07-12T13:05:22.251427098Z image tag sha256:aaaf965981f3e9d3df5f4768c9c78b69d2a4cc343ec95b97575eb0fe49577191 (name=aws_beanstalk/current-app:latest)
+2020-07-12T13:05:22.306389260Z image tag sha256:68e7be49c28c89833fc91b44a8c1db6982b52695749d57c3d6fe995a9bb1df5f (name=python:2.7)
+2020-07-12T13:09:35.464176944Z image tag sha256:aaaf965981f3e9d3df5f4768c9c78b69d2a4cc343ec95b97575eb0fe49577191 (name=aws_beanstalk/current-app:latest)
+2020-07-12T13:09:35.518970076Z image tag sha256:68e7be49c28c89833fc91b44a8c1db6982b52695749d57c3d6fe995a9bb1df5f (name=python:2.7)
+
+
+----------------------------------------
+/var/log/docker
+----------------------------------------
+Jul 12 13:03:42 ip-172-31-61-139 docker: time="2020-07-12T13:03:42.150758133Z" level=info msg="Starting up"
+Jul 12 13:03:42 ip-172-31-61-139 docker: time="2020-07-12T13:03:42.153095447Z" level=info msg="parsed scheme: \"unix\"" module=grpc
+Jul 12 13:03:42 ip-172-31-61-139 docker: time="2020-07-12T13:03:42.153144183Z" level=info msg="scheme \"unix\" not registered, fallback to default scheme" module=grpc
+Jul 12 13:03:42 ip-172-31-61-139 docker: time="2020-07-12T13:03:42.153174557Z" level=info msg="ccResolverWrapper: sending update to cc: {[{unix:///run/containerd/containerd.sock 0  <nil>}] <nil>}" module=grpc
+Jul 12 13:03:42 ip-172-31-61-139 docker: time="2020-07-12T13:03:42.153197209Z" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
+Jul 12 13:03:42 ip-172-31-61-139 docker: time="2020-07-12T13:03:42.159007771Z" level=info msg="parsed scheme: \"unix\"" module=grpc
+Jul 12 13:03:42 ip-172-31-61-139 docker: time="2020-07-12T13:03:42.159050136Z" level=info msg="scheme \"unix\" not registered, fallback to default scheme" module=grpc
+Jul 12 13:03:42 ip-172-31-61-139 docker: time="2020-07-12T13:03:42.159077578Z" level=info msg="ccResolverWrapper: sending update to cc: {[{unix:///run/containerd/containerd.sock 0  <nil>}] <nil>}" module=grpc
+Jul 12 13:03:42 ip-172-31-61-139 docker: time="2020-07-12T13:03:42.159092771Z" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
+Jul 12 13:03:42 ip-172-31-61-139 docker: time="2020-07-12T13:03:42.187545927Z" level=info msg="Loading containers: start."
+Jul 12 13:03:42 ip-172-31-61-139 docker: time="2020-07-12T13:03:42.458427623Z" level=info msg="Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP address"
+Jul 12 13:03:42 ip-172-31-61-139 docker: time="2020-07-12T13:03:42.656663449Z" level=info msg="Loading containers: done."
+Jul 12 13:03:42 ip-172-31-61-139 docker: time="2020-07-12T13:03:42.855242686Z" level=info msg="Docker daemon" commit=369ce74 graphdriver(s)=overlay2 version=19.03.6-ce
+Jul 12 13:03:42 ip-172-31-61-139 docker: time="2020-07-12T13:03:42.855794631Z" level=info msg="Daemon has completed initialization"
+Jul 12 13:03:42 ip-172-31-61-139 docker: time="2020-07-12T13:03:42.879464506Z" level=info msg="API listen on /var/run/docker.sock"
+Jul 12 13:05:13 ip-172-31-61-139 docker: time="2020-07-12T13:05:13.529386787Z" level=info msg="Layer sha256:5a842f0ba5ef21d98891ae2e8d99b6adddaac1d38b1055602d06e7fc609d427d cleaned up"
+Jul 12 13:05:13 ip-172-31-61-139 docker: time="2020-07-12T13:05:13.688031189Z" level=info msg="Layer sha256:5a842f0ba5ef21d98891ae2e8d99b6adddaac1d38b1055602d06e7fc609d427d cleaned up"
+
+
