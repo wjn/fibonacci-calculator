@@ -5,19 +5,22 @@
       "name": "client",
       "image": "wjn1/fibonacci-calculator-client",
       "hostname": "client",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "api",
       "image": "wjn1/fibonacci-calculator-api",
       "hostname": "api",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "worker",
       "image": "wjn1/fibonacci-calculator-worker",
       "hostname": "worker",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "proxy",
@@ -30,7 +33,8 @@
           "containerPort": 80
         }
       ],
-      "links": ["client", "api"]
+      "links": ["client", "api"],
+      "memory": 128
     }
   ]
 }
