@@ -32,8 +32,8 @@ deploy:
   edge: true
   provider: elasticbeanstalk
   region: 'us-east-1'
-  app: 'fibonacci-calculator'
-  env: 'FibCalc-env'
+  app: 'Fibonacci-Calc'
+  env: 'FibonacciCalc-env'
   bucket_name: 'elasticbeanstalk-us-east-1-858111074093'
   bucket_path: 'fibonacci-calculator'
   on:
